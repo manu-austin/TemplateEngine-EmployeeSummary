@@ -13,11 +13,6 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-// cards
-const managerCard = require('./templates/managerhtml');
-const internCard = require('./templates/internhtml');
-const engineerCard = require('./templates/engineerhtml');
-
 // create team array manager + engineer(s) + intern(s)
 const myTeam = [];
 
@@ -48,17 +43,16 @@ function promptUser() {
 
     .then(response => {
         // create new object and fill info 
-        const manager = new Manager(
+        myTeam.push(new Manager(
             response.managerName,
             response.managerID,
             response.managerEmail,
             response.officeNumber
-        );
+        ));
 
-        const managerCard = managerCard(manager);
-        myTeam.push(managerCard);
         otherTeamMember();
     })
+
 
 };
 
@@ -116,20 +110,21 @@ function addIntern() {
 
     .then(response => {
         // create new object and fill info 
-        const intern = new Intern(
+        myTeam.push(new Intern(
             response.internName,
             response.internID,
             response.internEmail,
             response.internSchool
-        );
+        ));
 
-        const internCard = internCard(intern);
-        myTeam.push(internCard);
         otherTeamMember();
     })
 
+
+
 };
 
+// prompt to ask question about engineer 
 
 function addEngineer() {
 
@@ -157,37 +152,24 @@ function addEngineer() {
 
     .then(response => {
         // create new object and fill info 
-        const engineer = new Engineer(
+        myTeam.push(new Engineer(
             response.engineerName,
             response.engineerID,
             response.engineerEmail,
             response.engineerGitHub
-        );
+        ));
 
-        const engineer = engineerCard(engineer);
-        myTeam.push(engineerCard);
         otherTeamMember();
     })
 
 };
 
+// create html file with the team
+function CreateTeam() {
+
+    fs.writeFileSync(outputPath, render(myTeam), 'utf-8');
+
+};
 
 // runs the function
 promptUser();
-
-//  {
-//     type: "list",
-//     name: "licenseList",
-//     message: "Please pick a license for this application from the list below",
-//     choices: [
-//         "Apache License 2.0",
-//         "BSD 3-Clause 'New' or 'Revised' license",
-//         "BSD 2-Clause 'Simplified' or 'FreeBSD' license",
-//         "GNU General Public License (GPL)",
-//         "GNU Library or 'Lesser' General Public License (LGPL)",
-//         "MIT license",
-//         "Mozilla Public License 2.0",
-//         "Common Development and Distribution License",
-//         "Eclipse Public License version 2.0",
-//     ]
-// },
