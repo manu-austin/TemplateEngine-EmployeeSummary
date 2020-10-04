@@ -76,7 +76,7 @@ function otherTeamMember() {
                     addEngineer();
                     break;
                 case "No more members":
-                    CreateTeam();
+                    createTeam();
                     break;
             }
 
@@ -165,7 +165,7 @@ function addEngineer() {
 };
 
 // create html file with the team
-function CreateTeam() {
+function createTeam() {
 
     fs.writeFileSync(outputPath, render(myTeam), 'utf-8');
 
