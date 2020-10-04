@@ -68,7 +68,7 @@ function otherTeamMember() {
             ]
         }])
         .then(response => {
-            switch (response.otherTeamMember) {
+            switch (response.memberType) {
                 case "Intern":
                     addIntern();
                     break;
