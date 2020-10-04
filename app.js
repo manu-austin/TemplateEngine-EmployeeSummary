@@ -90,45 +90,87 @@ function otherTeamMember() {
 };
 
 
-function promptUser() {
+function addIntern() {
 
     inquirer.prompt([{
             type: "input",
-            name: "managerName",
-            message: "What is the manager's name?"
+            name: "internName",
+            message: "What is the intern's name?"
         },
         {
             type: "input",
-            name: "managerID",
-            message: "What is the manager's ID?"
+            name: "internID",
+            message: "What is the intern's ID?"
         },
         {
             type: "input",
-            name: "managerEmail",
-            message: "What is the manager's Email??"
+            name: "internEmail",
+            message: "What is the intern's Email??"
         },
         {
             type: "input",
-            name: "officeNumber",
-            message: "What is the manager's phone number?"
+            name: "internSchool",
+            message: "What is the intern's school?"
         },
     ])
 
     .then(response => {
         // create new object and fill info 
-        const manager = new Manager(
-            response.managerName,
-            response.managerID,
-            response.managerEmail,
-            response.officeNumber
+        const intern = new Intern(
+            response.internName,
+            response.internID,
+            response.internEmail,
+            response.internSchool
         );
 
-        const managerCard = managerCard(manager);
-        myTeam.push(managerCard);
+        const internCard = internCard(intern);
+        myTeam.push(internCard);
         otherTeamMember();
     })
 
 };
+
+
+function addEngineer() {
+
+    inquirer.prompt([{
+            type: "input",
+            name: "engineerName",
+            message: "What is the engineer's name?"
+        },
+        {
+            type: "input",
+            name: "engineerID",
+            message: "What is the engineer's ID?"
+        },
+        {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is the engineer's Email??"
+        },
+        {
+            type: "input",
+            name: "engineerGitHub",
+            message: "What is the engineer's GitHub?"
+        },
+    ])
+
+    .then(response => {
+        // create new object and fill info 
+        const engineer = new Engineer(
+            response.engineerName,
+            response.engineerID,
+            response.engineerEmail,
+            response.engineerGitHub
+        );
+
+        const engineer = engineerCard(engineer);
+        myTeam.push(engineerCard);
+        otherTeamMember();
+    })
+
+};
+
 
 // runs the function
 promptUser();
