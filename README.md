@@ -1,3 +1,5 @@
+![Github License](https://img.shields.io/badge/License-MIT_License-brightgreen)
+
 # TemplateEngine-EmployeeSummary
 
 This application, using Node, attemps to help managers to create a webpage gathering data about employees (roles, contact informations, Id...)
@@ -11,14 +13,16 @@ This application, using Node, attemps to help managers to create a webpage gathe
 * [Author](#Author)
 
   ## Installation
-  ---
+
   Using Terminal on Visual Studio Code run 
 
   
   ## Instructions
+  
   On VS, open terminal and type `npm install`and then type node app.js
  
   ## License 
+  
   This project is licensed under the MIT license
   
   ### Terminal Screen Shot
