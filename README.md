@@ -13,7 +13,7 @@ This application, using Node, attemps to help managers to create a webpage gathe
   ## Installation
   ---
   Using Terminal on Visual Studio Code run 
-  ---
+
   
   ## Instructions
   On VS, open terminal and type `npm install`and then type node app.js
